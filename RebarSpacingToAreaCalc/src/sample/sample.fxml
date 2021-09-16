@@ -1,0 +1,178 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import java.lang.Double?>
+
+<?import java.lang.Integer?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets bottom="20" top="10"/>
+            </padding>
+            <Label text="Wybierz średnicę i rozstaw zbrojenia">
+                <font>
+                    <Font name="Arial bold" size="16"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            <Label text="zbrojenie główne">
+                <font>
+                    <Font name="Arial bold" size="12"/>
+                </font>
+            </Label>
+            <Label text="średnica [mm]">
+                <font>
+                    <Font name="Arial" size="12"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="mainRebarDiameter" prefWidth="90">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Integer fx:value="6"/>
+                        <Integer fx:value="8"/>
+                        <Integer fx:value="10"/>
+                        <Integer fx:value="12"/>
+                        <Integer fx:value="16"/>
+                        <Integer fx:value="20"/>
+                        <Integer fx:value="25"/>
+                        <Integer fx:value="32"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label text="rozstaw osiowy [cm]">
+                <font>
+                    <Font name="Arial" size="12"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="mainRebarSpacing" prefWidth="90">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Double fx:value="5"/>
+                        <Double fx:value="10"/>
+                        <Double fx:value="12.5"/>
+                        <Double fx:value="15"/>
+                        <Double fx:value="20"/>
+                        <Double fx:value="25"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox spacing="10" alignment="TOP_CENTER">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            <Label text="zbrojenie dodatkowe">
+                <font>
+                    <Font name="Arial bold" size="12"/>
+                </font>
+            </Label>
+            <Label text="średnica [mm]">
+                <font>
+                    <Font name="Arial" size="12"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="additionalRebarDiameter" prefWidth="90">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Integer fx:value="6"/>
+                        <Integer fx:value="8"/>
+                        <Integer fx:value="10"/>
+                        <Integer fx:value="12"/>
+                        <Integer fx:value="16"/>
+                        <Integer fx:value="20"/>
+                        <Integer fx:value="25"/>
+                        <Integer fx:value="32"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label text="rozstaw osiowy [cm]">
+                <font>
+                    <Font name="Arial" size="12"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="additionalRebarSpacing" prefWidth="90">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Double fx:value="5"/>
+                        <Double fx:value="10"/>
+                        <Double fx:value="12.5"/>
+                        <Double fx:value="15"/>
+                        <Double fx:value="20"/>
+                        <Double fx:value="25"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <CheckBox fx:id="additionalRebarCheck" text="dozbrajam"
+                    onAction="#checkBoxEmpty"/>
+        </VBox>
+    </right>
+
+    <center>
+        <VBox alignment="CENTER">
+            <Label text="pole zbrojenia =">
+                <font>
+                    <Font name="Arial bold" size="16"/>
+                </font>
+            </Label>
+            <Label fx:id="rebarArea" text="">
+                <font>
+                    <Font name="Arial bold" size="32"/>
+                </font>
+            </Label>
+            <Label text="[cm^2/m]">
+                <font>
+                    <Font name="Arial bold" size="16"/>
+                </font>
+            </Label>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets left="10" right="10" bottom="10"/>
+            </padding>
+            <Button fx:id="calculateButton" text="Oblicz" prefWidth="400" onAction="#calculateArea" >
+                <font>
+                    <Font name="Arial bold" size="16"/>
+                </font>
+  <!--              <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/logoplakon_gif.gif"/>
+                    </ImageView>
+                </graphic>-->
+
+            </Button>
+        </HBox>
+    </bottom>
+
+
+</BorderPane>
